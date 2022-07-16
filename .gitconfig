@@ -1,0 +1,16 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Tomáš Diblík
+	email = dibla.tomas@post.cz
+[core]
+	editor = \"C:\\Users\\TomDibla\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
+	ignorecase = false
+[http]
+	sslVerify = true
+	sslbackend = schannel
+[commit]
+	gpgsign = true
