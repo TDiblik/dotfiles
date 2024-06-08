@@ -1,0 +1,21 @@
+[core]
+	editor = \"/usr/local/bin/code\" --wait 
+	ignorecase = false
+[http]
+	sslVerify = true
+[commit]
+	gpgsign = true
+[alias]
+	llog = log --oneline
+	sstatus = status -s
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = master
+[pull]
+	rebase = true
+[gpg]
+	program = gpg
