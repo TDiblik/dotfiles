@@ -179,6 +179,19 @@
         "modifiers": ["right_option"]
       },
       "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "q",
+        "modifiers": {
+          "mandatory": ["right_option"]
+        }
+      },
+      "to": {
+        "key_code": "grave_accent_and_tilde",
+        "modifiers": []
+      },
+      "type": "basic"
     }
   ]
 }
