@@ -1,8 +1,14 @@
-# Changes
-defaults write -g ApplePressAndHoldEnabled -bool false
+# Show hidden files inside finder
 defaults write com.apple.Finder AppleShowAllFiles true
+
+# Delay before showing the hidden dock
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.15
+
+# Key repeat rate
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
 
 # Resets required for the settings to apply
 killall Dock
