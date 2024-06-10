@@ -2,7 +2,22 @@
 
 # Enviroment variables #
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export GPG_TTY=$(tty) # Tell GPG where to read input from
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Ruby
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+
+# Tell GPG where to read input from
+export GPG_TTY=$(tty) 
 
 
 # Aliases #
@@ -22,4 +37,5 @@ alias trestore="tmux-session restore"
 alias trs="tmux-session restore"
 
 
+# UI #
 export PROMPT='%F{80}[%1~]%{$reset_color%} %{$fg[cyan]%}${vcs_info_msg_0_}%{$reset_color%}%F{218}>%{$reset_color%} '
