@@ -9,9 +9,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Ruby
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="$PATH:/opt/homebrew/opt/ruby/bin"
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+
+# Go
+export PATH="$PATH:$HOME/go/bin"
 
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
