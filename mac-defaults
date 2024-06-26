@@ -7,7 +7,6 @@ defaults write com.apple.dock autohide-time-modifier -float 0.15
 
 # Key repeat rate
 defaults write -g ApplePressAndHoldEnabled -bool false
-defaults write -g InitialKeyRepeat -int 10
 
 # Resets required for the settings to apply
 killall Dock
