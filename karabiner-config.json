@@ -218,6 +218,18 @@
         "modifiers": ["right_option"]
       },
       "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "spacebar",
+        "modifiers": {
+          "mandatory": ["right_option"]
+        }
+      },
+      "to": {
+        "key_code": "spacebar"
+      },
+      "type": "basic"
     }
   ]
 }
