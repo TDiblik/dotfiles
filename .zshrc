@@ -29,6 +29,7 @@ alias vim="nvim"
 alias fsize="du -hd 1"
 alias nmap="sudo nmap"
 alias git-submodules-update="git submodule update --init --recursive --remote --merge"
+alias ss="kitten ssh"
 
 alias tls="tmux list-sessions"
 alias tas="tmux attach-session -t"
