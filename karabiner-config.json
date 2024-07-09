@@ -230,6 +230,19 @@
         "key_code": "spacebar"
       },
       "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "c",
+        "modifiers": {
+          "mandatory": ["right_option"]
+        }
+      },
+      "to": {
+        "key_code": "7",
+        "modifiers": ["right_option"]
+      },
+      "type": "basic"
     }
   ]
 }
