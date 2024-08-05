@@ -16,6 +16,20 @@ export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 # Go
 export PATH="$PATH:$HOME/go/bin"
 
+# Java - latest
+# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+# Java - 11
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
+
+# Python - pyenv
+export PATH="${HOME}/.pyenv/shims:${PATH}"
+
+# C++
+export CXXFLAGS="-stdlib=libc++"
+
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 
@@ -30,6 +44,7 @@ alias fsize="du -hd 1"
 alias nmap="sudo nmap"
 alias git-submodules-update="git submodule update --init --recursive --remote --merge"
 alias ss="kitten ssh"
+alias htop="sudo htop"
 
 alias tls="tmux list-sessions"
 alias tas="tmux attach-session -t"
@@ -43,3 +58,6 @@ alias trs="tmux-session restore"
 
 # UI #
 export PROMPT='%F{80}[%1~]%{$reset_color%} %{$fg[cyan]%}${vcs_info_msg_0_}%{$reset_color%}%F{218}>%{$reset_color%} '
+
+
+# Other #
