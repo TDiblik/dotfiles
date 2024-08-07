@@ -1,7 +1,7 @@
 # ! Read at every instance start ! #
 
 # Enviroment variables #
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -10,25 +10,31 @@ export NVM_DIR="$HOME/.nvm"
 
 # Ruby
 export PATH="$PATH:/opt/homebrew/opt/ruby/bin"
-export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib $LDFLAGS"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include $CPPFLAGS"
 
 # Go
 export PATH="$PATH:$HOME/go/bin"
 
 # Java - latest
 # export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-# export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include $CPPFLAGS"
 
 # Java - 11
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include $CPPFLAGS"
 
 # Python - pyenv
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 
 # C++
-export CXXFLAGS="-stdlib=libc++"
+export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
+
+# Postgres Tools
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib $LDFLAGS"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include $CPPFLAGS"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig $PKG_CONFIG_PATH"
 
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
