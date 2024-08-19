@@ -1,6 +1,11 @@
+[user]
+	name = YOUR_INFO
+	email = YOUR_@_EMAIL
+	signingkey = YOUR_KEY
 [core]
 	editor = \"/usr/local/bin/code\" --wait 
 	ignorecase = false
+	autocrlf = true
 [http]
 	sslVerify = true
 [commit]
