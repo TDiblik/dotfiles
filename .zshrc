@@ -24,11 +24,18 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include $CPPFLAGS"
 
+# Maven
+export M2_HOME="/opt/homebrew/Cellar/maven/3.9.9/libexec"
+
 # Python - pyenv
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 
 # C++
 export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
+
+# LLVM
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib $LDFLAGS"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include $CPPFLAGS"
 
 # Postgres Tools
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
@@ -44,6 +51,7 @@ export GPG_TTY=$(tty)
 
 
 # Aliases #
+alias cls="clear"
 alias ls="ls -a"
 alias vim="nvim"
 alias fsize="du -hd 1"
@@ -51,6 +59,7 @@ alias nmap="sudo nmap"
 alias git-submodules-update="git submodule update --init --recursive --remote --merge"
 alias ss="kitten ssh"
 alias htop="sudo htop"
+alias finder="open"
 
 alias tls="tmux list-sessions"
 alias tas="tmux attach-session -t"
