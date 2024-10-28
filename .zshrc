@@ -26,6 +26,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include $CPPFLAGS"
 
 # Maven
 export M2_HOME="/opt/homebrew/Cellar/maven/3.9.9/libexec"
+alias mvn-run="mvn clean package && mvn exec:java"
 
 # Python - pyenv
 export PATH="${HOME}/.pyenv/shims:${PATH}"
