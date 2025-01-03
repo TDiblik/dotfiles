@@ -35,7 +35,7 @@ export PATH="${HOME}/.pyenv/shims:${PATH}"
 export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
 
 # LLVM
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib $LDFLAGS"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind $LDFLAGS"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include $CPPFLAGS"
 
 # Postgres Tools
@@ -66,10 +66,17 @@ alias tls="tmux list-sessions"
 alias tas="tmux attach-session -t"
 alias trm="tmux kill-session -t"
 alias tkill="tmux kill-server"
-alias trename="tmux rename-session -t "
+alias trename="tmux rename-session -t"
 alias tsave="tmux-session save"
 alias trestore="tmux-session restore"
 alias trs="tmux-session restore"
+
+alias ollama-start="ollama serve"
+alias ollama-kill="pkill ollama"
+alias open-webui-update-and-start="docker stop open-webui ; docker rm -f open-webui ; docker pull ghcr.io/open-webui/open-webui:main && docker run -d -p 3333:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data -e WEBUI_AUTH=False --name open-webui --restart always ghcr.io/open-webui/open-webui:main"
+alias open-webui-start="docker start open-webui"
+alias open-webui-stop="docker stop open-webui"
+alias open-webui-rm-full="docker stop open-webui ; docker rm -f open-webui ; docker volume rm open-webui"
 
 
 # UI #
