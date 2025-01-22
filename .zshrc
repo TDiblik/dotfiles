@@ -28,6 +28,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include $CPPFLAGS"
 export M2_HOME="/opt/homebrew/Cellar/maven/3.9.9/libexec"
 alias mvn-run="mvn clean package && mvn exec:java"
 
+# Android
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
 # Python - pyenv
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 
@@ -46,6 +51,9 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig $PKG_CONFIG_PATH"
 
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
+
+# Metasploit
+export PATH="/opt/metasploit-framework/bin:$PATH"
 
 # Tell GPG where to read input from
 export GPG_TTY=$(tty) 
@@ -71,12 +79,14 @@ alias tsave="tmux-session save"
 alias trestore="tmux-session restore"
 alias trs="tmux-session restore"
 
-alias ollama-start="ollama serve"
-alias ollama-kill="pkill ollama"
-alias open-webui-update-and-start="docker stop open-webui ; docker rm -f open-webui ; docker pull ghcr.io/open-webui/open-webui:main && docker run -d -p 3333:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data -e WEBUI_AUTH=False --name open-webui --restart always ghcr.io/open-webui/open-webui:main"
+alias ollama-start="docker start open-webui && ollama serve"
+alias ollama-kill="docker stop open-webui ; pkill ollama"
+alias open-webui-update-and-start="docker stop open-webui ; docker rm -f open-webui ; docker pull ghcr.io/open-webui/open-webui:main && docker run -d -p 3333:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data -e WEBUI_AUTH=False --name open-webui ghcr.io/open-webui/open-webui:main"
 alias open-webui-start="docker start open-webui"
 alias open-webui-stop="docker stop open-webui"
 alias open-webui-rm-full="docker stop open-webui ; docker rm -f open-webui ; docker volume rm open-webui"
+
+alias obs-screen-switcher-start="python3 ~/Projects/personal/random-stuff/obs-screen-switcher.py"
 
 
 # UI #
