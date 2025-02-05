@@ -58,6 +58,8 @@ export PATH="/opt/metasploit-framework/bin:$PATH"
 # Tell GPG where to read input from
 export GPG_TTY=$(tty) 
 
+# Fuck husky
+export HUSKY=0
 
 # Aliases #
 alias cls="clear"
@@ -69,6 +71,7 @@ alias git-submodules-update="git submodule update --init --recursive --remote --
 alias ss="kitten ssh"
 alias htop="sudo htop"
 alias finder="open"
+alias ghidra="chmod +x ~/.ghidra/11.2.1/ghidraRun && ~/.ghidra/11.2.1/ghidraRun"
 
 alias tls="tmux list-sessions"
 alias tas="tmux attach-session -t"
