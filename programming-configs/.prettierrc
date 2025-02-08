@@ -9,6 +9,6 @@
   "trailingComma": "all",
   "bracketSpacing": false,
   "bracketSameLine": false,
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "singleAttributePerLine": false
 }
