@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-set -e
 
 ### Constants ###
 DAYS_TO_KEEP=7
 
 ### Init info ###
-echo -e "\Before cleanup:"
+echo -e "\nBefore cleanup:"
 free_storage=$(df -k / | awk 'NR==2 {print $4}')
 total_storage=$(df -k / | awk 'NR==2 {print $2}')
 free_storage_gb=$(echo "scale=2; $free_storage / 1024 / 1024" | bc)
@@ -19,6 +18,8 @@ export NVM_DIR="$HOME/.nvm"
 
 echo "Requesting sudo permissions..."
 sudo -v
+
+set -x
 
 ### Updates ###
 brew update 
@@ -107,6 +108,9 @@ echo "Cleaning up memory cache..."
 sudo purge || echo "Error purging system memory."
 
 ### Finish info ###
+
+set +x
+
 echo -e "\nAfter cleanup:"
 free_storage_final=$(df -k / | awk 'NR==2 {print $4}')
 total_storage_final=$(df -k / | awk 'NR==2 {print $2}')
