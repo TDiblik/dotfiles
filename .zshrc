@@ -62,7 +62,9 @@ export GPG_TTY=$(tty)
 export HUSKY=0
 
 # Aliases #
-alias cls="clear"
+alias cls='clear'
+alias cls-tmux='clear && tmux clear-history'
+alias clear-tmux='clear && tmux clear-history'
 alias ls="ls -a"
 alias vim="nvim"
 alias fsize="du -hd 1"
