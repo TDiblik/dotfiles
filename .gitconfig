@@ -20,7 +20,5 @@
 	required = true
 [init]
 	defaultBranch = master
-[pull]
-	rebase = true
 [gpg]
 	program = gpg

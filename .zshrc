@@ -74,6 +74,10 @@ alias ss="kitten ssh"
 alias htop="sudo htop"
 alias finder="open"
 alias ghidra="chmod +x ~/.ghidra/11.2.1/ghidraRun && ~/.ghidra/11.2.1/ghidraRun"
+kill-port() {
+  kill -9 $(lsof -i:$1 -t)
+}
+
 
 alias tls="tmux list-sessions"
 alias tas="tmux attach-session -t"
