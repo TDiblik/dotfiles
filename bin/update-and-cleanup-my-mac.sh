@@ -39,6 +39,7 @@ for version in $(nvm ls --no-colors | awk '{print $1}' | grep -E '^v[0-9]+\.[0-9
     nvm use $version
     npm cache clean --force
     yarn cache clean || true
+    pnpm store prune || true
 done
 
 echo "Cleaning up after docker..."
