@@ -88,13 +88,6 @@ alias tsave="tmux-session save"
 alias trestore="tmux-session restore"
 alias trs="tmux-session restore"
 
-alias ollama-start="docker start open-webui && ollama serve"
-alias ollama-kill="docker stop open-webui ; pkill ollama"
-alias open-webui-update-and-start="docker stop open-webui ; docker rm -f open-webui ; docker pull ghcr.io/open-webui/open-webui:main && docker run -d -p 3333:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data -e WEBUI_AUTH=False --name open-webui ghcr.io/open-webui/open-webui:main"
-alias open-webui-start="docker start open-webui"
-alias open-webui-stop="docker stop open-webui"
-alias open-webui-rm-full="docker stop open-webui ; docker rm -f open-webui ; docker volume rm open-webui"
-
 alias obs-screen-switcher-start="python3 ~/Projects/personal/random-stuff/obs-screen-switcher.py"
 
 
