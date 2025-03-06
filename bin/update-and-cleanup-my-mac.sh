@@ -115,6 +115,9 @@ find ~/Projects -name "node_modules" -type d -exec rm -rf {} \; 2>/dev/null
 
 set +x
 
+echo -e "\nInfo about the biggest folders atm: "
+du -h -d 1 ~ 2>/dev/null | sort -hr | head -n 20
+
 echo -e "\nAfter cleanup:"
 free_storage_final=$(df -k / | awk 'NR==2 {print $4}')
 total_storage_final=$(df -k / | awk 'NR==2 {print $2}')
@@ -135,3 +138,5 @@ elif [ "$free_storage_diff_kb" -ge 1024 ]; then
 else
     echo "Space freed: $free_storage_diff_kb Ki"
 fi
+
+## If you wanna remove more space, go into iCloud Drive -> click folder -> Remove Download
