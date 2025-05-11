@@ -111,6 +111,9 @@ sudo purge || echo "Error purging system memory."
 echo "Cleaning up node_modules inside my ~/Projects directory..."
 find ~/Projects -name "node_modules" -type d -exec rm -rf {} \; 2>/dev/null
 
+echo "Cleaning up nx cache inside my ~/Projects directory..."
+find ~/Projects -name ".nx" -type d -exec rm -rf {} \; 2>/dev/null
+
 ### Finish info ###
 
 set +x
