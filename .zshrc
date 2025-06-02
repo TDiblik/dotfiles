@@ -8,6 +8,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+# Bun 
+[ -s "/Users/tom/.bun/_bun" ] && source "/Users/tom/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # Ruby
 export PATH="$PATH:/opt/homebrew/opt/ruby/bin"
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib $LDFLAGS"
@@ -16,13 +21,17 @@ export CPPFLAGS="-I/opt/homebrew/opt/ruby/include $CPPFLAGS"
 # Go
 export PATH="$PATH:$HOME/go/bin"
 
+# Java - 11
+# export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include $CPPFLAGS"
+
+# Java - 21
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include $CPPFLAGS"
+
 # Java - latest
 # export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include $CPPFLAGS"
-
-# Java - 11
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include $CPPFLAGS"
 
 # Maven
 export M2_HOME="/opt/homebrew/Cellar/maven/3.9.9/libexec"
@@ -35,6 +44,9 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Python - pyenv
 export PATH="${HOME}/.pyenv/shims:${PATH}"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 # C++
 export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
@@ -75,7 +87,14 @@ alias htop="sudo htop"
 alias finder="open"
 alias ghidra="chmod +x ~/.ghidra/11.2.1/ghidraRun && ~/.ghidra/11.2.1/ghidraRun"
 kill-port() {
-  kill -9 $(lsof -i:$1 -t)
+  local pids=$(lsof -i:$1 -t)
+  if [[ -n "$pids" ]]; then
+    for pid in $pids; do
+      kill -15 $pid && echo "Killed process $pid on port $1"
+    done
+  else
+    echo "No process found on port $1"
+  fi
 }
 
 

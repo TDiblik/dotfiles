@@ -23,3 +23,13 @@ zstyle ':vcs_info:git:*' formats '(%b) '
 # Overwriting default configs #
 HISTSIZE=100000
 HISTFILESIZE=200000
+
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/tom/Library/Application Support/JetBrains/Toolbox/scripts"
+
+
+# Setting PATH for Python 2.7
+# The original version is saved in .zprofile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
