@@ -2,6 +2,7 @@
   "description": "Programming config 3000",
   "manipulators": [
     {
+      "type": "basic",
       "from": {
         "key_code": "b",
         "modifiers": {
@@ -11,10 +12,10 @@
       "to": {
         "key_code": "9",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "n",
         "modifiers": {
@@ -24,10 +25,10 @@
       "to": {
         "key_code": "0",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "a",
         "modifiers": {
@@ -37,20 +38,20 @@
       "to": {
         "key_code": "5",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "non_us_backslash"
       },
       "to": {
         "key_code": "semicolon",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "non_us_backslash",
         "modifiers": {
@@ -60,10 +61,10 @@
       "to": {
         "key_code": "backslash",
         "modifiers": ["left_shift"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "equal_sign",
         "modifiers": {
@@ -73,10 +74,10 @@
       "to": {
         "key_code": "backslash",
         "modifiers": ["left_shift"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "backslash",
         "modifiers": {
@@ -86,10 +87,10 @@
       "to": {
         "key_code": "quote",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "f",
         "modifiers": {
@@ -99,10 +100,10 @@
       "to": {
         "key_code": "open_bracket",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "g",
         "modifiers": {
@@ -112,10 +113,10 @@
       "to": {
         "key_code": "close_bracket",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "w",
         "modifiers": {
@@ -125,10 +126,10 @@
       "to": {
         "key_code": "grave_accent_and_tilde",
         "modifiers": ["right_shift"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "m",
         "modifiers": {
@@ -138,10 +139,10 @@
       "to": {
         "key_code": "6",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "slash",
         "modifiers": {
@@ -151,10 +152,10 @@
       "to": {
         "key_code": "8",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "semicolon",
         "modifiers": {
@@ -164,10 +165,10 @@
       "to": {
         "key_code": "4",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "non_us_backslash",
         "modifiers": {
@@ -177,10 +178,10 @@
       "to": {
         "key_code": "hyphen",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "q",
         "modifiers": {
@@ -190,10 +191,10 @@
       "to": {
         "key_code": "grave_accent_and_tilde",
         "modifiers": []
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "x",
         "modifiers": {
@@ -203,10 +204,10 @@
       "to": {
         "key_code": "3",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "v",
         "modifiers": {
@@ -216,10 +217,10 @@
       "to": {
         "key_code": "2",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "spacebar",
         "modifiers": {
@@ -228,10 +229,10 @@
       },
       "to": {
         "key_code": "spacebar"
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "c",
         "modifiers": {
@@ -241,10 +242,10 @@
       "to": {
         "key_code": "7",
         "modifiers": ["right_option"]
-      },
-      "type": "basic"
+      }
     },
     {
+      "type": "basic",
       "from": {
         "key_code": "3",
         "modifiers": {
@@ -254,8 +255,33 @@
       "to": {
         "key_code": "6",
         "modifiers": ["right_option"]
+      }
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "e",
+        "modifiers": {
+          "mandatory": ["right_option"]
+        }
       },
-      "type": "basic"
+      "to": {
+        "key_code": "r",
+        "modifiers": ["left_option"]
+      }
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "e",
+        "modifiers": {
+          "mandatory": ["right_option"]
+        }
+      },
+      "to": {
+        "key_code": "r",
+        "modifiers": ["left_option"]
+      }
     }
   ]
 }
