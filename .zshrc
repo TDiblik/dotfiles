@@ -82,16 +82,17 @@ alias vim="nvim"
 alias fsize="du -hd 1"
 alias nmap="sudo nmap"
 alias git-submodules-update="git submodule update --init --recursive --remote --merge"
+alias git-set-origin="git remote set-url origin"
 alias ss="kitten ssh"
 alias htop="sudo htop"
 alias finder="open"
 alias ghidra="chmod +x ~/.ghidra/11.2.1/ghidraRun && ~/.ghidra/11.2.1/ghidraRun"
+alias vse-vpn="sudo launchctl load /Library/LaunchDaemons/com.cisco.anyconnect.vpnagentd.plist && sleep 5 && open -a /Applications/Cisco/Cisco\ AnyConnect\ Secure\ Mobility\ Client.app"
 kill-port() {
   local pids=$(lsof -i:$1 -t)
   if [[ -n "$pids" ]]; then
-    for pid in $pids; do
-      kill -15 $pid && echo "Killed process $pid on port $1"
-    done
+    echo "$pids" | xargs -n 1 kill -15
+    echo "Killed process(es) on port $1"
   else
     echo "No process found on port $1"
   fi
