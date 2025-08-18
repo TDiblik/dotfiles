@@ -19,6 +19,13 @@ export NVM_DIR="$HOME/.nvm"
 echo "Requesting sudo permissions..."
 sudo -v
 
+## Keep sudo authentication timestamp fresh ##
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
+
 set -x
 
 ### Updates ###
