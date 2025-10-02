@@ -1,6 +1,9 @@
 # ! Read at every instance start ! #
 
 # Enviroment variables #
+unset LDFLAGS
+unset CPPFLAGS
+unset PKG_CONFIG_PATH
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
 # nvm
@@ -48,6 +51,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 
+# Ruby - rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # C++
 export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
 
@@ -66,6 +73,9 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # Metasploit
 export PATH="/opt/metasploit-framework/bin:$PATH"
+
+# Jetbrains Toolbox
+export PATH="$PATH:/Users/tom/Library/Application Support/JetBrains/Toolbox/scripts"
 
 # Tell GPG where to read input from
 export GPG_TTY=$(tty) 
@@ -91,11 +101,19 @@ alias vse-vpn="sudo launchctl load /Library/LaunchDaemons/com.cisco.anyconnect.v
 kill-port() {
   local pids=$(lsof -i:$1 -t)
   if [[ -n "$pids" ]]; then
-    echo "$pids" | xargs -n 1 kill -15
+    echo "$pids" | xargs -n 1 kill -9
     echo "Killed process(es) on port $1"
   else
     echo "No process found on port $1"
   fi
+}
+check-port() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: check-port <port>"
+    return 1
+  fi
+
+  lsof -i:$1 -n -P
 }
 
 
