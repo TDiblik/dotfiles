@@ -1,0 +1,138 @@
+{
+  "name": "Deploy rostlik",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0],
+      "id": "ddd9829f-2961-48f2-bba4-146ed6eb7669",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/INSERT_GITHUB_USERNAME/INSERT_GITHUB_REPO/tarball/master",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubApi",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [160, 0],
+      "id": "4140e25a-22ed-471e-b448-31387d5212a6",
+      "name": "HTTP Request",
+      "credentials": {
+        "githubApi": {
+          "id": "PHZzXa5qj8Zev0l4",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/tmp/PROJECT_EXTRACT_PATH_code",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [320, 0],
+      "id": "6a654e46-f5a0-461c-91e9-67bd16cbe788",
+      "name": "Read/Write Files from Disk"
+    },
+    {
+      "parameters": {
+        "command": "=rm -rf /tmp/PROJECT_EXTRACT_PATH && \\\nmkdir /tmp/PROJECT_EXTRACT_PATH && \\\ntar -xzf /tmp/PROJECT_EXTRACT_PATH_code -C /tmp/PROJECT_EXTRACT_PATH --strip-components=1"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [496, 0],
+      "id": "c9d76c8e-9e6d-45e3-8a58-e9e46955c20f",
+      "name": "Prepare for build"
+    },
+    {
+      "parameters": {
+        "command": "# static\nDOCKER_USER=INSERT_DOCKER_REGISTRY_USER\nDOCKER_PASS=INSERT_DOCKER_REGISTRY_PASSWORD\nDOCKER_REGISTRY=\"INSERT_DOCKER_REGISTRY_URL\"\nCOOLIFY_API_TOKEN=\"INSERT_COOLIFY_API_TOKEN\"\nCOOLIFY_URL=\"INSERT_COOLIFY_URL/api/v1\"\n\n# project-dependant\nWORKDIR=\"/tmp/PROJECT_EXTRACT_PATH\"\nDOCKER_REPO=\"INSERT_DOCKER_REPO\"\nDOCKER_IMAGE=\"$DOCKER_REGISTRY/$DOCKER_REPO\"\nDOCKERFILE_PATH=\"$WORKDIR/INSERT_DOCKER_FILE_NAME\" COOLIFY_RESOURCE_ID=\"INSERT_COOLIFY_RESOURCE_ID\"\n\ncurrent=$(curl -s -u \"$DOCKER_USER:$DOCKER_PASS\" https://$DOCKER_REGISTRY/v2/$DOCKER_REPO/tags/list | jq -r '.tags | map(ltrimstr(\"v\")) | map(split(\".\") | map(tonumber)) | sort_by(.[]) | .[-1] | join(\".\")')\necho \"Current version: $current\"\n\nIFS='.' read -r major minor patch <<EOF\n$current\nEOF\npatch=$((patch+1))\nnext=\"$major.$minor.$patch\"\necho \"Next Docker version: $next\"\n\nDOCKER_TAG=\"$DOCKER_IMAGE:v$next\"\necho \"Full Docker tag: $DOCKER_TAG\"\n\ndocker login $DOCKER_REGISTRY -u \"$DOCKER_USER\" -p \"$DOCKER_PASS\"\n\ndocker build -t $DOCKER_TAG --no-cache -f $DOCKERFILE_PATH $WORKDIR\n\ndocker push $DOCKER_TAG\n\ncurl \"$COOLIFY_URL/applications/$COOLIFY_RESOURCE_ID\" \\\n  --request PATCH \\\n  -H \"Authorization: Bearer $COOLIFY_API_TOKEN\" \\\n  -H 'Content-Type: application/json' \\\n  --data \"{\n    \\\"docker_registry_image_tag\\\": \\\"v$next\\\"\n  }\"\n\ncurl -X GET \"$COOLIFY_URL/deploy?uuid=$COOLIFY_RESOURCE_ID&force=false\" \\\n  -H \"Authorization: Bearer $COOLIFY_API_TOKEN\" \\\n  -H 'Content-Type: application/json'\n\ndocker rmi $DOCKER_TAG\n\necho \"✅ Done. Cleaned up Docker images, cache, and temp files.\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [672, 0],
+      "id": "910f2645-608e-4f7d-afdc-f10790918e83",
+      "name": "Build & Push & Cleanup"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read/Write Files from Disk": {
+      "main": [
+        [
+          {
+            "node": "Prepare for build",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare for build": {
+      "main": [
+        [
+          {
+            "node": "Build & Push & Cleanup (admin)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build & Push & Cleanup (admin)": {
+      "main": [
+        [
+          {
+            "node": "Build & Push & Cleanup (storefront)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "09043ee0-85cc-41b7-8a58-ff07428cc6db",
+  "meta": {
+    "instanceId": "576d360dec0584c2d1f1c45ab3a39cedc001067a14d9d17045d2817c5bce0c58"
+  },
+  "id": "iZxfAIWcJxD0Cgtn",
+  "tags": []
+}

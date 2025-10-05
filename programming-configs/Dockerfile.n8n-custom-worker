@@ -1,0 +1,17 @@
+# 0. docker login docker-registry.dev.tomasdiblik.cz
+# 1. docker build -t docker-registry.dev.tomasdiblik.cz/n8n-custom-worker:vX.X.X --no-cache -f Dockerfile.n8n-custom-worker .
+# 2. docker push docker-registry.dev.tomasdiblik.cz/n8n-custom-worker:vX.X.X
+# 3. Change n8n docker compose to use docker-registry.dev.tomasdiblik.cz/n8n-custom-worker:vX.X.X as a worker!
+# 4. Add this line to the worker docker compose, inside volumes: 
+#	- '/var/run/docker.sock:/var/run/docker.sock'
+#	- '/tmp/n8n:/tmp'
+
+FROM docker.n8n.io/n8nio/n8n:latest
+
+USER root
+
+RUN apk add --no-cache docker-cli curl \
+    && mkdir -p /usr/libexec/docker/cli-plugins \
+    && curl -SL https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-linux-aarch64 -o /usr/libexec/docker/cli-plugins/docker-compose \
+    && chmod +x /usr/libexec/docker/cli-plugins/docker-compose
+ENV PATH="/usr/libexec/docker/cli-plugins:${PATH}"
