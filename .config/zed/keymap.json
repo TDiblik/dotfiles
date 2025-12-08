@@ -1,0 +1,41 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      "alt-p": "command_palette::Toggle",
+      "alt-o": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-.": "editor::ToggleCodeActions",
+      "alt-,": "editor::Hover"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "shift-m": "pane::SplitRight",
+      "shift-j": "pane::ActivatePreviousItem",
+      "shift-k": "pane::ActivateNextItem",
+      "shift-h": "workspace::ActivatePaneLeft",
+      "shift-l": "workspace::ActivatePaneRight",
+      "alt-k": "editor::GoToDefinition",
+      "[": "editor::ToggleComments"
+    }
+  }
+]

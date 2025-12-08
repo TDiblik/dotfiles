@@ -31,9 +31,6 @@ set -x
 ### Updates ###
 brew update 
 brew upgrade --greedy 
-brew reinstall librewolf --no-quarantine
-
-msfupdate || true
 
 ### Cleanups ###
 echo "Cleaning up after brew..."

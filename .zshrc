@@ -6,6 +6,10 @@ unset CPPFLAGS
 unset PKG_CONFIG_PATH
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -30,7 +34,7 @@ export PATH="$PATH:$HOME/go/bin"
 
 # Java - 21
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include $CPPFLAGS"
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include $CPPFLAGS"
 
 # Java - latest
 # export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
@@ -68,14 +72,11 @@ export LDFLAGS="-L/opt/homebrew/opt/libpq/lib $LDFLAGS"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include $CPPFLAGS"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig $PKG_CONFIG_PATH"
 
-# Homebrew
-export HOMEBREW_NO_ANALYTICS=1
-
-# Metasploit
-export PATH="/opt/metasploit-framework/bin:$PATH"
-
 # Jetbrains Toolbox
 export PATH="$PATH:/Users/tom/Library/Application Support/JetBrains/Toolbox/scripts"
+
+# nordic
+export PATH="$PATH:/opt/nordic/ncs/v3.1.1"
 
 # Tell GPG where to read input from
 export GPG_TTY=$(tty) 
