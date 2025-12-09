@@ -13,13 +13,6 @@
     }
   },
   {
-    "context": "Editor",
-    "bindings": {
-      "alt-.": "editor::ToggleCodeActions",
-      "alt-,": "editor::Hover"
-    }
-  },
-  {
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
       "tab": "editor::ContextMenuNext",
@@ -35,7 +28,9 @@
       "shift-h": "workspace::ActivatePaneLeft",
       "shift-l": "workspace::ActivatePaneRight",
       "alt-k": "editor::GoToDefinition",
-      "[": "editor::ToggleComments"
+      "[": "editor::ToggleComments",
+      "alt-.": "editor::ToggleCodeActions",
+      "alt-,": "editor::Hover"
     }
   }
 ]
