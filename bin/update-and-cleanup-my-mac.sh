@@ -37,6 +37,9 @@ echo "Cleaning up after brew..."
 brew autoremove
 brew cleanup 
 
+echo "Cleaning up after bun..."
+bun pm cache rm -g
+
 echo "Cleaning up after nvm & node..."
 nvm cache clear
 for version in $(nvm ls --no-colors | awk '{print $1}' | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$'); do
