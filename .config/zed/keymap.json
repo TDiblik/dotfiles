@@ -9,18 +9,19 @@
   {
     "bindings": {
       "alt-p": "command_palette::Toggle",
-      "alt-o": "file_finder::Toggle"
-    }
+      "alt-o": "file_finder::Toggle",
+      "alt-i": "workspace::NewSearch",
+    },
   },
   {
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
       "tab": "editor::ContextMenuNext",
-      "shift-tab": "editor::ContextMenuPrevious"
-    }
+      "shift-tab": "editor::ContextMenuPrevious",
+    },
   },
   {
-    "context": "Editor && vim_mode == normal",
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
     "bindings": {
       "shift-m": "pane::SplitRight",
       "shift-j": "pane::ActivatePreviousItem",
@@ -29,8 +30,14 @@
       "shift-l": "workspace::ActivatePaneRight",
       "alt-k": "editor::GoToDefinition",
       "[": "editor::ToggleComments",
+      "alt-[": "editor::ToggleComments",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
       "alt-.": "editor::ToggleCodeActions",
-      "alt-,": "editor::Hover"
-    }
-  }
+      "alt-,": "editor::Hover",
+    },
+  },
 ]

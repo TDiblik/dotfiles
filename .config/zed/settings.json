@@ -8,51 +8,51 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "collaboration_panel": {
-    "button": true
+    "button": true,
   },
   "notification_panel": {
-    "button": false
+    "button": false,
   },
   "outline_panel": {
-    "button": true
+    "button": true,
   },
   "tabs": {
     "close_position": "left",
     "file_icons": false,
-    "git_status": false
+    "git_status": false,
   },
   "tab_bar": {
     "show_nav_history_buttons": true,
-    "show": true
+    "show": true,
   },
   "title_bar": {
     "show_sign_in": true,
     "show_user_picture": false,
     "show_onboarding_banner": false,
     "show_project_items": true,
-    "show_branch_name": true
+    "show_branch_name": true,
   },
   "debugger": {
-    "button": false
+    "button": false,
   },
   "search": {
-    "button": true
+    "button": true,
   },
   "terminal": {
-    "button": false
+    "button": false,
   },
   "status_bar": {
     "cursor_position_button": false,
-    "active_language_button": true
+    "active_language_button": true,
   },
   "icon_theme": "Material Icon Theme",
   "agent": {
     "button": true,
     "default_model": {
       "provider": "google",
-      "model": "gemini-2.5-flash"
+      "model": "gemini-2.5-flash",
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "vim_mode": true,
   "base_keymap": "VSCode",
@@ -63,53 +63,53 @@
   "buffer_font_weight": 200,
   "telemetry": {
     "metrics": false,
-    "diagnostics": false
+    "diagnostics": false,
   },
   "project_panel": {
     "button": true,
-    "dock": "right"
+    "dock": "right",
   },
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "VScode Dark Plus"
+    "dark": "VSCode Dark Polished",
   },
   "toolbar": {
     "breadcrumbs": false,
-    "quick_actions": false
+    "quick_actions": false,
   },
   "git_panel": {
     "button": true,
-    "dock": "right"
+    "dock": "right",
   },
   "diagnostics": {
     "button": true,
-    "include_warnings": true
+    "include_warnings": true,
   },
   "tab_size": 2,
   "vim": {
     "use_system_clipboard": "always",
-    "custom_digraphs": {}
+    "custom_digraphs": {},
   },
   "features": {
-    "edit_prediction_provider": "none"
+    "edit_prediction_provider": "none",
   },
   "git": {
     "git_gutter": null,
     "gutter_debounce": null,
     "inline_blame": {
-      "enabled": false
+      "enabled": false,
     },
-    "hunk_style": null
+    "hunk_style": null,
   },
   "file_types": {
-    "Dockerfile": ["Dockerfile.*"]
+    "Dockerfile": ["Dockerfile.*"],
   },
   "lsp": {
     "biome": {
       "settings": {
-        "require_config_file": true
-      }
-    }
-  }
+        "require_config_file": true,
+      },
+    },
+  },
 }
