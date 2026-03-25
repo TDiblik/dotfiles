@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "provider": "none"
+  },
   "collaboration_panel": {
     "button": true,
   },
@@ -79,6 +82,7 @@
     "quick_actions": false,
   },
   "git_panel": {
+    "sort_by_path": true,
     "button": true,
     "dock": "right",
   },
@@ -90,9 +94,6 @@
   "vim": {
     "use_system_clipboard": "always",
     "custom_digraphs": {},
-  },
-  "features": {
-    "edit_prediction_provider": "none",
   },
   "git": {
     "git_gutter": null,
@@ -106,10 +107,46 @@
     "Dockerfile": ["Dockerfile.*"],
   },
   "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    },
     "biome": {
       "settings": {
         "require_config_file": true,
       },
     },
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "onSave": true
+          }
+        }
+      }
+    }
+  },
+  "languages": {
+    "JavaScript": {
+      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": ["tsgo", "vtsls"]
+    },
+    "TypeScript": { "formatter": { "language_server": { "name": "biome" } } },
+    "TSX": { "formatter": { "language_server": { "name": "biome" } } },
+    "JSON": { "formatter": { "language_server": { "name": "biome" } } },
+    "JSONC": { "formatter": { "language_server": { "name": "biome" } } },
+    "CSS": { "formatter": { "language_server": { "name": "biome" } } },
+    "GraphQL": { "formatter": { "language_server": { "name": "biome" } } },
   },
 }

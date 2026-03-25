@@ -98,14 +98,13 @@ alias ss="kitten ssh"
 alias htop="sudo htop"
 alias finder="open"
 alias ghidra="chmod +x ~/.ghidra/11.2.1/ghidraRun && ~/.ghidra/11.2.1/ghidraRun"
-alias vse-vpn="sudo launchctl load /Library/LaunchDaemons/com.cisco.anyconnect.vpnagentd.plist && sleep 5 && open -a /Applications/Cisco/Cisco\ AnyConnect\ Secure\ Mobility\ Client.app"
 kill-port() {
-  local pids=$(lsof -i:$1 -t)
+  local pids=$(sudo lsof -i:$1 -sTCP:LISTEN -t)
   if [[ -n "$pids" ]]; then
-    echo "$pids" | xargs -n 1 kill -9
-    echo "Killed process(es) on port $1"
+    echo "$pids" | sudo xargs -n 1 kill -9
+    echo "Killed listening process(es) on port $1"
   else
-    echo "No process found on port $1"
+    echo "No listening process found on port $1"
   fi
 }
 check-port() {
