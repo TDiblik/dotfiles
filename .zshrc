@@ -28,20 +28,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/ruby/include $CPPFLAGS"
 # Go
 export PATH="$PATH:$HOME/go/bin"
 
-# Java - 11
-# export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-# export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include $CPPFLAGS"
-
-# Java - 21
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
-# export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include $CPPFLAGS"
-
-# Java - latest
-# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# Java
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include $CPPFLAGS"
 
 # Maven
-export M2_HOME="/opt/homebrew/Cellar/maven/3.9.9/libexec"
 alias mvn-run="mvn clean package && mvn exec:java"
 
 # Android
